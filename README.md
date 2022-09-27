@@ -28,6 +28,7 @@ Overview of README:
 -   [**CytoSPACE outputs**](#cytospace-outputs)
 -   [**Example datasets for running CytoSPACE**](#example-datasets-for-running-cytospace)
 -   [**Customizing plotting outputs**](#customizing-plotting-outputs)
+-   [**Advanced options**](#advanced-options)
 -   [**Extended usage details**](#extended-usage-details)
 -   [**CytoSPACE Solver options**](#cytospace-solver-options)
 -   [**Updating local installations**](#updating-local-installations)
@@ -289,6 +290,13 @@ and for the sample melanoma data as:
 ```bash
   cytospace-plot -alp cytospace_results_melanoma/assigned_locations.csv -cp  melanoma_STdata_slide1_coordinates.txt -o melanoma_results.pdf -nr 5 -nc 3 -ss 1100 -pm s -nv
 ```
+
+## Advanced options(#advanced-options)
+While default options are recommended for most uses, we provide some additional advanced options.
+
+### User-provided estimates of number of cells per spot
+Rather than using the internal mechanism of CytoSPACE for estimating the number of cells per spot, users can provide their own estimates (from image segmentation, for example). 
+
 ## Extended usage details
 ```
 usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp COORDINATES_PATH -ctfep
