@@ -292,12 +292,23 @@ and for the sample melanoma data as:
 ```
 
 ## Advanced options
-While default options are recommended for most uses, we provide some additional advanced options.
+While default options are recommended for most use cases, we provide additional options for advanced users.
 
 ### User-provided estimates of number of cells per spot
-Rather than using the internal mechanism of CytoSPACE for estimating the number of cells per spot, users can provide their own estimates (from image segmentation, for example) in a file with the following format:
+Rather than using the internal mechanism of CytoSPACE for estimating the number of cells per spot, users can provide their own estimates (from image segmentation, for example) in a two-column file with header, in which the first column contains spot IDs and the second contains the number of cells predicted per spot:
 
-This can be done by passing the flag `-ncpsp` or `--n-cells-per-spot-path` followed by the file location.
+<p align="center">
+  <img width="300" src="https://github.com/digitalcytometry/cytospace/blob/main/images/n_cells_per_spot.jpeg">
+</p>
+
+To run CytoSPACE with this option, pass the flag `-ncpsp` or `--n-cells-per-spot-path` followed by the file location.
+
+### Alternative distance metric
+By default, CytoSPACE uses Pearson correlation to compare cell and spot transcriptomes. Users can choose to use Spearman correlation or Euclidean distance instead by passing `-dm Spearman_correlation` or `-dm Euclidean` respectively with the function call. 
+
+### Setting a new random seed
+While the CytoSPACE algorithm is mostly deterministic, the initial step of sampling cells to be mapped is done at random. To provide an alternative random seed, users can pass `-se` followed by the desired (integer) seed with the function call.
+
 
 ## Extended usage details
 ```
