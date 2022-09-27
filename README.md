@@ -356,7 +356,7 @@ A zip file of example single cell inputs is available to download from Google Dr
    unzip single_cell_example_data.zip
    ```
 
-To run CytoSPACE with this example dataset, execute the following command:
+To run CytoSPACE with this example dataset, run the following command from the location of the unzipped inputs and with your CytoSPACE conda environment active:
  ```bash
  cytospace -sc -sp brca_scRNA_GEP.txt -ctp brca_scRNA_celllabels.txt -stp single_cell_ST_example_GEP.txt -cp single_cell_ST_example_coors.txt -ctfep single_cell_ST_example_fractions.txt -nop 1 -nosc 10000 -noss 10000
 ```
