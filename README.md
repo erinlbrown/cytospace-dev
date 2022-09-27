@@ -359,15 +359,17 @@ A zip file of example single cell inputs is available to download from Google Dr
 To run CytoSPACE with this example dataset, execute the following command:
  ```bash
  cytospace -sc
-    -sp /path/to/scRNA_geneexpression
-    -ctp /path/to/scRNA_celllabels
-    -stp /path/to/ST_geneexpression
-    -cp /path/to/ST_coordinates
-    -ctfep path/to/cellfracestimates
-    -nop NUMBER_OF_PROCESSORS
-    -nosc NUMBER_OF_SELECTED_CELLS
-    -noss NUMBER_OF_SELECTED_SPOTS
+    -sp brca_scRNA_GEP.txt
+    -ctp brca_scRNA_celllabels.txt
+    -stp single_cell_ST_example_GEP.txt
+    -cp single_cell_ST_example_coors.txt
+    -ctfep single_cell_ST_example_fractions.txt
+    -nop 1
+    -nosc 10000
+    -noss 10000
 ```
+
+Expected outputs are available on Google Drive here. To download from the command line using `gdown`:
 ## Extended usage details
 ```
 usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp
