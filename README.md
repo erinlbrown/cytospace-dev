@@ -295,7 +295,9 @@ and for the sample melanoma data as:
 While default options are recommended for most uses, we provide some additional advanced options.
 
 ### User-provided estimates of number of cells per spot
-Rather than using the internal mechanism of CytoSPACE for estimating the number of cells per spot, users can provide their own estimates (from image segmentation, for example). 
+Rather than using the internal mechanism of CytoSPACE for estimating the number of cells per spot, users can provide their own estimates (from image segmentation, for example) in a file with the following format:
+
+This can be done by passing the flag `-ncpsp` or `--n-cells-per-spot-path` followed by the file location.
 
 ## Extended usage details
 ```
@@ -326,11 +328,11 @@ optional arguments:
   -dm {Pearson_correlation,Spearman_correlation,Cosine,Euclidean}, --distance-metric {Pearson_correlation,Spearman_correlation,Cosine,Euclidean}
                         Which distance metric to use for the cost matrix, default 'Pearson_correlation'
   -nosc NUMBER_OF_SELECTED_CELLS, --number-of-selected-cells NUMBER_OF_SELECTED_CELLS
-                        Number of selected cells from scRNA-seq data used in eahc iteration
+                        Number of selected cells from scRNA-seq data used in each iteration
   -noss NUMBER_OF_SELECTED_SPOTS, --number-of-selected-spots NUMBER_OF_SELECTED_SPOTS
-                        Number of selected spots from ST data used in eahc iteration
+                        Number of selected spots from ST data used in each iteration
   -nop NUMBER_OF_PROCESSORS, --number-of-processors NUMBER_OF_PROCESSORS
-                        Number of processors used for the analysis
+                        Number of processors used for the analysis (single-cell spatial approach only)
   -scst, --sc-spatial    Use single-cell spatial approach or not
   -p, --plot-off        Turn create plots on/off
   -nr NUM_ROW, --num-row NUM_ROW
