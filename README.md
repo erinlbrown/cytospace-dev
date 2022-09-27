@@ -321,6 +321,17 @@ While CytoSPACE's formulation as a linear assignment problem guarantees an optim
 ### Method extension: single cell ST data
 While designed for Visium-type data in which most spots contain RNA from multiple cells, CytoSPACE can also be used with single-cell resolution spatial data such as <a href="https://vizgen.com/resources/meet-the-merscope-platform/" target="_blank">Vizgen's MERSCOPE platform</a>. 
 
+
+A zip file of <a href="[https://drive.google.com/file/d/1CLfy4Txez8ThID8YzIH04hlvrBRCQ4Rh/view?usp=sharing](https://drive.google.com/file/d/1ffNTDWBT6MACHWYhm2XRNteSzxeGFRWS/view?usp=sharing)" target="_blank">example single cell inputs</a> is available to download from Google Drive. 
+
+
+To download from the command line using `gdown`:
+1. Breast cancer
+   ```bash
+   gdown --fuzzy https://drive.google.com/file/d/1CLfy4Txez8ThID8YzIH04hlvrBRCQ4Rh/view?usp=sharing
+   unzip CytoSPACE_example_breast_cancer_results.zip
+   ```
+
 ## Extended usage details
 ```
 usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp COORDINATES_PATH -ctfep
