@@ -319,7 +319,7 @@ While CytoSPACE's formulation as a linear assignment problem guarantees an optim
 ```
 
 ### Method extension: single cell ST data
-While designed for Visium-type data in which most spots contain RNA from multiple cells, CytoSPACE can also be used with single-cell resolution spatial data such as <a href="https://vizgen.com/resources/meet-the-merscope-platform/" target="Vizgen's MERSCOPE platform">.</a>. 
+While designed for Visium-type data in which most spots contain RNA from multiple cells, CytoSPACE can also be used with single-cell resolution spatial data such as <a href="https://vizgen.com/resources/meet-the-merscope-platform/" target="_blank">Vizgen's MERSCOPE platform</a>. 
 
 ## Extended usage details
 ```
