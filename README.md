@@ -30,7 +30,7 @@ Overview of README:
 -   [**Customizing plotting outputs**](#customizing-plotting-outputs)
 -   [**Advanced options**](#advanced-options)
 -   [**Extended usage details**](#extended-usage-details)
--   [**CytoSPACE Solver options**](#cytospace-solver-options)
+-   [**CytoSPACE solver options**](#cytospace-solver-options)
 -   [**Updating local installations**](#updating-local-installations)
 -   [**Authors**](#authors)
 -   [**Contact**](#contact)
@@ -311,6 +311,9 @@ While the CytoSPACE algorithm is mostly deterministic, the initial step of sampl
 
 ### Alternative handling of sampling
 CytoSPACE starts by creating a pool of cells that matches what is expected within the ST data. By default, this is done by resampling single cells to achieve the overall cell type fractions and total cell numbers estimated in the tissue. We recommend that CytoSPACE be run with this default setting for all real data analyses. However, we provide an additional option to generate new "place-holder" cells by sampling from the distribution of gene counts within each cell type instead, and used this option for ensuring uniqueness of mapped cells for benchmarking on simulated data. To run CytoSPACE with this alternative mode, users can pass `-sam place_holders` with the function call. 
+
+### Method extension: mapping quality
+While CytoSPACE's formulation as a linear assignment problem guarantees an optimal solution given its cost function, there is no underlying probabilistic framework for estimating mapping uncertainty. One possibility is to determine whether a given cell type belongs to a given spot after mapping - that is, whether a spot contains at least one cell of the same cell type. Notably, this does not distinguish between cells of the same cell type for quality of fit, so much mapping granularity is not considered in this measure. As such a protocol provides some measure of mapping quality, albeit incomplete, we provide a helper script that implements this via a support vector machine that produces and trains on pseudo-bulks generated from the input scRNA-seq data. This script, `uncertainty_quantification.R`, takes as input the path to the ST dataset count matrix file, the scRNA-seq count matrix file, and the CytoSPACE output file `assigned_locations.csv`, and returns an appended output file with confidence scores in `assigned_locationswConfidenceScores.csv`.
 
 ## Extended usage details
 ```
