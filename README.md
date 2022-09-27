@@ -319,8 +319,36 @@ While CytoSPACE's formulation as a linear assignment problem guarantees an optim
 ```
 
 ### Method extension: single cell ST data
-While designed for Visium-type data in which most spots contain RNA from multiple cells, CytoSPACE can also be used with single-cell resolution spatial data such as <a href="https://vizgen.com/resources/meet-the-merscope-platform/" target="_blank">Vizgen's MERSCOPE platform</a>. 
+While designed for Visium-type data in which most spots contain RNA from multiple cells, CytoSPACE can also be used with single-cell resolution spatial data such as <a href="https://vizgen.com/resources/meet-the-merscope-platform/" target="_blank">Vizgen's MERSCOPE platform</a>. For this single-cell resolution mode, CytoSPACE partitions the ST data into smaller chunks and utilizes multiple CPU cores to assign down-sampled versions of the reference scRNA-seq data to these regions.
 
+To run CytoSPACE with single-cell resolution spatial data:
+ ```bash
+ cytospace --single-cell 
+    --scRNA-path /path/to/scRNA_geneexpression
+    --cell-type-path /path/to/scRNA_celllabels
+    --st-path /path/to/ST_geneexpression
+    --coordinates-path /path/to/ST_coordinates
+    --cell-type-fraction-estimation-path path/to/cellfracestimates
+    --number-of-processors NUMBER_OF_PROCESSORS
+    --number-of-selected-cells  NUMBER_OF_SELECTED_CELLS
+    --number-of-selected-spots NUMBER_OF_SELECTED_SPOTS
+```
+Or with more condensed parameter names: 
+ ```bash
+ cytospace -sc
+    -sp /path/to/scRNA_geneexpression
+    -ctp /path/to/scRNA_celllabels
+    -stp /path/to/ST_geneexpression
+    -cp /path/to/ST_coordinates
+    -ctfep path/to/cellfracestimates
+    -nop NUMBER_OF_PROCESSORS
+    -nosc NUMBER_OF_SELECTED_CELLS
+    -noss NUMBER_OF_SELECTED_SPOTS
+```
+where `NUMBER_OF_PROCESSORS` denotes the number of cores to use, `NUMBER_OF_SELECTED_CELLS` denotes the number of cells in each dowsampled version, and `NUMBER_OF_SELECTED_SPOTS` denotes the size of each ST region. We generally recommend the following setting for these three parameters: 
+```bash
+-nop 1 -nosc 10000 -noss 10000 
+```
 
 A zip file of example single cell inputs is available to download from Google Drive <a href="https://drive.google.com/file/d/1CLfy4Txez8ThID8YzIH04hlvrBRCQ4Rh/view?usp=sharing" target="_blank">here</a>. To download from the command line using `gdown`:
    ```bash
@@ -328,6 +356,18 @@ A zip file of example single cell inputs is available to download from Google Dr
    unzip single_cell_example_data.zip
    ```
 
+To run CytoSPACE with this example dataset, execute the following command:
+ ```bash
+ cytospace -sc
+    -sp /path/to/scRNA_geneexpression
+    -ctp /path/to/scRNA_celllabels
+    -stp /path/to/ST_geneexpression
+    -cp /path/to/ST_coordinates
+    -ctfep path/to/cellfracestimates
+    -nop NUMBER_OF_PROCESSORS
+    -nosc NUMBER_OF_SELECTED_CELLS
+    -noss NUMBER_OF_SELECTED_SPOTS
+```
 ## Extended usage details
 ```
 usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp
@@ -375,9 +415,9 @@ optional arguments:
                         default 'Pearson_correlation'
   -nosc NUMBER_OF_SELECTED_CELLS, --number-of-selected-cells NUMBER_OF_SELECTED_CELLS
                         Number of selected cells from scRNA-seq data used in
-                        eahc iteration
+                        each iteration
   -noss NUMBER_OF_SELECTED_SPOTS, --number-of-selected-spots NUMBER_OF_SELECTED_SPOTS
-                        Number of selected spots from ST data used in eahc
+                        Number of selected spots from ST data used in each
                         iteration
   -nop NUMBER_OF_PROCESSORS, --number-of-processors NUMBER_OF_PROCESSORS
                         Number of processors used for the analysis
