@@ -345,31 +345,28 @@ Or with more condensed parameter names:
     -nosc NUMBER_OF_SELECTED_CELLS
     -noss NUMBER_OF_SELECTED_SPOTS
 ```
-where `NUMBER_OF_PROCESSORS` denotes the number of cores to use, `NUMBER_OF_SELECTED_CELLS` denotes the number of cells in each dowsampled version, and `NUMBER_OF_SELECTED_SPOTS` denotes the size of each ST region. We generally recommend the following setting for these three parameters: 
+where `NUMBER_OF_PROCESSORS` denotes the number of cores to use, `NUMBER_OF_SELECTED_CELLS` denotes the number of cells in each dowsampled version, and `NUMBER_OF_SELECTED_SPOTS` denotes the size of each ST region. We generally recommend the following settings for these three parameters: 
 ```bash
 -nop 1 -nosc 10000 -noss 10000 
 ```
 
-A zip file of example single cell inputs is available to download from Google Drive <a href="https://drive.google.com/file/d/1CLfy4Txez8ThID8YzIH04hlvrBRCQ4Rh/view?usp=sharing" target="_blank">here</a>. To download from the command line using `gdown`:
+A zip file of example single cell inputs is available to download from Google Drive <a href="https://drive.google.com/file/d/10fhxjCn-VfPPurrI-RE8lbs6NCPqfGXY/view?usp=sharing" target="_blank">here</a>. To download from the command line using `gdown`:
    ```bash
-   gdown --fuzzy https://drive.google.com/file/d/1CLfy4Txez8ThID8YzIH04hlvrBRCQ4Rh/view?usp=sharing
+   gdown --fuzzy https://drive.google.com/file/d/10fhxjCn-VfPPurrI-RE8lbs6NCPqfGXY/view?usp=sharing
    unzip single_cell_example_data.zip
    ```
 
 To run CytoSPACE with this example dataset, execute the following command:
  ```bash
- cytospace -sc
-    -sp brca_scRNA_GEP.txt
-    -ctp brca_scRNA_celllabels.txt
-    -stp single_cell_ST_example_GEP.txt
-    -cp single_cell_ST_example_coors.txt
-    -ctfep single_cell_ST_example_fractions.txt
-    -nop 1
-    -nosc 10000
-    -noss 10000
+ cytospace -sc -sp brca_scRNA_GEP.txt -ctp brca_scRNA_celllabels.txt -stp single_cell_ST_example_GEP.txt -cp single_cell_ST_example_coors.txt -ctfep single_cell_ST_example_fractions.txt -nop 1 -nosc 10000 -noss 10000
 ```
 
 Expected outputs are available on Google Drive here. To download from the command line using `gdown`:
+   ```bash
+   gdown --fuzzy ???
+   unzip single_cell_example_results.zip
+   ```
+   
 ## Extended usage details
 ```
 usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp
