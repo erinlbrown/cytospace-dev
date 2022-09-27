@@ -361,12 +361,6 @@ To run CytoSPACE with this example dataset, run the following command from the l
  cytospace -sc -sp brca_scRNA_GEP.txt -ctp brca_scRNA_celllabels.txt -stp single_cell_ST_example_GEP.txt -cp single_cell_ST_example_coors.txt -ctfep single_cell_ST_example_fractions.txt -nop 1 -nosc 10000 -noss 10000
 ```
 
-Expected outputs are available on Google Drive here. To download from the command line using `gdown`:
-   ```bash
-   gdown --fuzzy ???
-   unzip single_cell_example_results.zip
-   ```
-   
 ## Extended usage details
 ```
 usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp
