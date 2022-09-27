@@ -298,7 +298,7 @@ While default options are recommended for most use cases, we do provide addition
 Rather than using the internal mechanism of CytoSPACE for estimating the number of cells per spot, users can provide their own estimates (from image segmentation, for example) in a two-column file with header, in which the first column contains spot IDs and the second contains the number of cells predicted per spot:
 
 <p align="center">
-  <img width="300" src="https://github.com/digitalcytometry/cytospace/blob/main/images/n_cells_per_spot.PNG">
+  <img width="300" src="https://github.com/erinlbrown/cytospace-dev/blob/main/images/n_cells_per_spot.PNG">
 </p>
 
 To run CytoSPACE with this option, pass the flag `-ncpsp` or `--n-cells-per-spot-path` followed by the file location.
