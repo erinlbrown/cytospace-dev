@@ -309,6 +309,8 @@ By default, CytoSPACE uses Pearson correlation to compare cell and spot transcri
 ### Setting a new random seed
 While the CytoSPACE algorithm is mostly deterministic, the initial step of sampling cells to be mapped is done at random. To provide an alternative random seed, users can pass `-se` followed by the desired (integer) seed with the function call.
 
+### Alternative handling of sampling
+CytoSPACE starts by creating a pool of cells that matches what is expected within the ST data. By default, this is done by resampling single cells to achieve the predicted overall cell type fractions and total cell numbers estimated in the tissue. We recommend that CytoSPACE be run with this default setting for all real data analyses. However, we provide an additional option to generate new "place holder" cells by sampling from the distribution of gene counts within each cell type instead, and used this for ensuring uniqueness of mapped cells for benchmarking on simulated data. To run CytoSPACE with this alternative mode, users can pass `sam place_holders` with the function call. 
 
 ## Extended usage details
 ```
