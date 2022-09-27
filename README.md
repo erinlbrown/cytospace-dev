@@ -291,7 +291,7 @@ and for the sample melanoma data as:
   cytospace-plot -alp cytospace_results_melanoma/assigned_locations.csv -cp  melanoma_STdata_slide1_coordinates.txt -o melanoma_results.pdf -nr 5 -nc 3 -ss 1100 -pm s -nv
 ```
 
-## Advanced options(#advanced-options)
+## Advanced options
 While default options are recommended for most uses, we provide some additional advanced options.
 
 ### User-provided estimates of number of cells per spot
