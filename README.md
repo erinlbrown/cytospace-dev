@@ -330,10 +330,23 @@ A zip file of example single cell inputs is available to download from Google Dr
 
 ## Extended usage details
 ```
-usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp COORDINATES_PATH -ctfep
-                 CELL_TYPE_FRACTION_ESTIMATION_PATH [-o OUTPUT_FOLDER] [-op OUTPUT_PREFIX] [-d DELIMITER]
-                 [-sm {lapjv,lapjv_compat,lap_CSPR}] [-mcn MEAN_CELL_NUMBERS] [-se SEED] [-p] [-nr NUM_ROW]
-                 [-nc NUM_COLUMN] [-r] [-pv] [-rd ROTATION_DEGREES] [-ss SPOT_SIZE] [-pm PLOT_MARKER]
+usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp
+                 COORDINATES_PATH -ctfep CELL_TYPE_FRACTION_ESTIMATION_PATH
+                 [-ncpsp N_CELLS_PER_SPOT_PATH] [-o OUTPUT_FOLDER]
+                 [-op OUTPUT_PREFIX] [-d DELIMITER]
+                 [-sm {lapjv,lapjv_compat,lap_CSPR}]
+                 [-sam {duplicates,place_holders}] [-mcn MEAN_CELL_NUMBERS]
+                 [-se SEED]
+                 [-dm {Pearson_correlation,Spearman_correlation,Cosine,Euclidean}]
+                 [-nosc NUMBER_OF_SELECTED_CELLS]
+                 [-noss NUMBER_OF_SELECTED_SPOTS] [-nop NUMBER_OF_PROCESSORS]
+                 [-sc] [-p] [-nr NUM_ROW] [-nc NUM_COLUMN] [-r] [-nv]
+                 [-rd ROTATION_DEGREES] [-ss SPOT_SIZE] [-pm PLOT_MARKER]
+
+CytoSPACE is a computational strategy for assigning single-cell transcriptomes
+to in situ spatial transcriptomics (ST) data. Our method solves single
+cell/spot assignment by minimizing a correlation-based cost function through a
+linear programming-based optimization routine.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -346,23 +359,29 @@ optional arguments:
   -d DELIMITER, --delimiter DELIMITER
                         Set delimiter of the input files, default '\t'
   -sm {lapjv,lapjv_compat,lap_CSPR}, --solver-method {lapjv,lapjv_compat,lap_CSPR}
-                        Which solver to use for the linear assignment problem, default 'lapjv'
+                        Which solver to use for the linear assignment problem,
+                        default 'lapjv'
   -sam {duplicates,place_holders}, --sampling-method {duplicates,place_holders}
-                        Which unerlying method to use for dealing with duplicated cells, default 'duplicates'
+                        Which unerlying method to use for dealing with
+                        duplicated cells, default 'duplicates'
   -mcn MEAN_CELL_NUMBERS, --mean-cell-numbers MEAN_CELL_NUMBERS
-                        Mean number of cells per spot, default 5 (appropriate for Visium). If analyzing legacy spatial
+                        Mean number of cells per spot, default 5 (appropriate
+                        for Visium). If analyzing legacy spatial
                         transcriptomics data, set to 20
   -se SEED, --seed SEED
                         Set seed for random generators, default 1
   -dm {Pearson_correlation,Spearman_correlation,Cosine,Euclidean}, --distance-metric {Pearson_correlation,Spearman_correlation,Cosine,Euclidean}
-                        Which distance metric to use for the cost matrix, default 'Pearson_correlation'
+                        Which distance metric to use for the cost matrix,
+                        default 'Pearson_correlation'
   -nosc NUMBER_OF_SELECTED_CELLS, --number-of-selected-cells NUMBER_OF_SELECTED_CELLS
-                        Number of selected cells from scRNA-seq data used in each iteration
+                        Number of selected cells from scRNA-seq data used in
+                        eahc iteration
   -noss NUMBER_OF_SELECTED_SPOTS, --number-of-selected-spots NUMBER_OF_SELECTED_SPOTS
-                        Number of selected spots from ST data used in each iteration
+                        Number of selected spots from ST data used in eahc
+                        iteration
   -nop NUMBER_OF_PROCESSORS, --number-of-processors NUMBER_OF_PROCESSORS
-                        Number of processors used for the analysis (single-cell spatial approach only)
-  -scst, --sc-spatial    Use single-cell spatial approach or not
+                        Number of processors used for the analysis
+  -sc, --single-cell    Use single-cell spatial approach or not
   -p, --plot-off        Turn create plots on/off
   -nr NUM_ROW, --num-row NUM_ROW
                         Number of rows in pdf figure
