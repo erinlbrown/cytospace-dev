@@ -345,10 +345,7 @@ Or with more condensed parameter names:
     -nosc NUMBER_OF_SELECTED_CELLS
     -noss NUMBER_OF_SELECTED_SPOTS
 ```
-where `NUMBER_OF_PROCESSORS` denotes the number of cores to use, `NUMBER_OF_SELECTED_CELLS` denotes the number of cells in each dowsampled version, and `NUMBER_OF_SELECTED_SPOTS` denotes the size of each ST region. We generally recommend the following settings for these three parameters: 
-```bash
--nop 1 -nosc 10000 -noss 10000 
-```
+where `NUMBER_OF_PROCESSORS` denotes the number of cores to use, `NUMBER_OF_SELECTED_CELLS` denotes the number of cells in each dowsampled version, and `NUMBER_OF_SELECTED_SPOTS` denotes the size of each ST region. We generally recommend `-nosc 10000 -noss 10000`.
 
 A zip file of example single cell inputs is available to download from Google Drive <a href="https://drive.google.com/file/d/10fhxjCn-VfPPurrI-RE8lbs6NCPqfGXY/view?usp=sharing" target="_blank">here</a>. To download from the command line using `gdown`:
    ```bash
