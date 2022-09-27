@@ -318,6 +318,9 @@ While CytoSPACE's formulation as a linear assignment problem guarantees an optim
  Rscript uncertainty_quantification.R /path/to/ST_geneexpression /path/to/scRNA_geneexpression /path/to/assigned_locations.csv
 ```
 
+### Method extension: single cell ST data
+While designed for Visium-type data in which most spots contain RNA from multiple cells, CytoSPACE can also be used with single-cell resolution spatial data such as <a href="https://vizgen.com/resources/meet-the-merscope-platform/" target="Vizgen's MERSCOPE platform">.</a>. 
+
 ## Extended usage details
 ```
 usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp COORDINATES_PATH -ctfep
