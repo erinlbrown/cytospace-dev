@@ -298,26 +298,40 @@ usage: cytospace [-h] -sp SCRNA_PATH -ctp CELL_TYPE_PATH -stp ST_PATH -cp COORDI
 
 optional arguments:
   -h, --help            show this help message and exit
+  -ncpsp N_CELLS_PER_SPOT_PATH, --n-cells-per-spot-path N_CELLS_PER_SPOT_PATH
+                        Path to number of cells per ST spot file
   -o OUTPUT_FOLDER, --output-folder OUTPUT_FOLDER
                         Relative path to the output folder
   -op OUTPUT_PREFIX, --output-prefix OUTPUT_PREFIX
                         Prefix of results stored in the 'output_folder'
   -d DELIMITER, --delimiter DELIMITER
-                        Set delimiter of the input files, default ' '
+                        Set delimiter of the input files, default '\t'
   -sm {lapjv,lapjv_compat,lap_CSPR}, --solver-method {lapjv,lapjv_compat,lap_CSPR}
                         Which solver to use for the linear assignment problem, default 'lapjv'
+  -sam {duplicates,place_holders}, --sampling-method {duplicates,place_holders}
+                        Which unerlying method to use for dealing with duplicated cells, default 'duplicates'
   -mcn MEAN_CELL_NUMBERS, --mean-cell-numbers MEAN_CELL_NUMBERS
                         Mean number of cells per spot, default 5 (appropriate for Visium). If analyzing legacy spatial
                         transcriptomics data, set to 20
   -se SEED, --seed SEED
                         Set seed for random generators, default 1
+  -dm {Pearson_correlation,Spearman_correlation,Cosine,Euclidean}, --distance-metric {Pearson_correlation,Spearman_correlation,Cosine,Euclidean}
+                        Which distance metric to use for the cost matrix, default 'Pearson_correlation'
+  -nosc NUMBER_OF_SELECTED_CELLS, --number-of-selected-cells NUMBER_OF_SELECTED_CELLS
+                        Number of selected cells from scRNA-seq data used in eahc iteration
+  -noss NUMBER_OF_SELECTED_SPOTS, --number-of-selected-spots NUMBER_OF_SELECTED_SPOTS
+                        Number of selected spots from ST data used in eahc iteration
+  -nop NUMBER_OF_PROCESSORS, --number-of-processors NUMBER_OF_PROCESSORS
+                        Number of processors used for the analysis
+  -scst, --sc-spatial    Use single-cell spatial approach or not
   -p, --plot-off        Turn create plots on/off
   -nr NUM_ROW, --num-row NUM_ROW
                         Number of rows in pdf figure
   -nc NUM_COLUMN, --num-column NUM_COLUMN
-                        Number of coulmns in pdf figure
+                        Number of columns in pdf figure
   -r, --rotation-flag   Rotate plot
-  -nv, --plot-nonvisium    Plot custom slide dimensions
+  -nv, --plot-nonvisium
+                        Plot with custom slide dimensions
   -rd ROTATION_DEGREES, --rotation-degrees ROTATION_DEGREES
                         Rotation on plot
   -ss SPOT_SIZE, --spot-size SPOT_SIZE
